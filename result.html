@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado Final</h1>
+        <div class="result-details">
+            <p id="name"></p>
+            <p id="subject"></p>
+            <p id="average"></p>
+            <p id="status" class="status"></p>
+        </div>
+        <a href="index.html" class="back-link">Voltar</a>
+    </div>
+</body>
+</html>
+
+
+
+<script>
+    const name = localStorage.getItem('studentName');
+    const subject = localStorage.getItem('subjectName');
+    const average = parseFloat(localStorage.getItem('average'))
+    const status = average >= 6 ? 'Aprovado' : 'Reprovado';
+    const statusClass = average >= 6 ? 'approved' : 'failed';
+    
+    document.getElementById('name').innerText = `Nome: ${name}`;
+    document.getElementById('subject').innerText = `Materia: ${subject}`;
+    document.getElementById('average').innerText = `Média: ${average.toFixed(2)}`;
+    document.getElementById('status').innerText = `Status: ${status}`;
+    document.getElementById('status').classList.add(statusClass);
+     </script>
